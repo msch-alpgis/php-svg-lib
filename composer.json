@@ -1,5 +1,5 @@
 {
-  "name": "msch-alpgis/php-svg-lib",
+  "name": "phenx/php-svg-lib",
   "type": "library",
   "description": "A library to read, parse and export to PDF SVG files.",
   "homepage": "https://github.com/PhenX/php-svg-lib",
