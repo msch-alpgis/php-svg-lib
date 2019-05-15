@@ -7,6 +7,7 @@
  */
 
 namespace Svg\Tag;
+use Svg\Tag\Image;
 
 class UseTag extends AbstractTag
 {
@@ -68,7 +69,12 @@ class UseTag extends AbstractTag
         if (!$this->reference) {
             return;
         }
-
+		
+		// FIX: don't replace base64encoded images by reference id
+		if($this->reference instanceof Image && isset($attributes['xlink:href']) && strpos($attributes['xlink:href'], '#') === 0){
+			unset($attributes['xlink:href']);
+		}
+		
         $attributes = array_merge($this->reference->attributes, $attributes);
 
         $this->reference->handle($attributes);
